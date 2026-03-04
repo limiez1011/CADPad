@@ -1,0 +1,6 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "iyg")(type "KiCad")(uri "C:/Users/tudor a/Desktop/OPL_Kicad_Library-master/OPL_Kicad_Library-master/Seeed Studio XIAO Series Library")(options "")(descr ""))
+  (lib (name "ff")(type "KiCad")(uri "C:/Users/tudor a/Desktop/ew")(options "")(descr ""))
+  (lib (name "rew")(type "KiCad")(uri "C:/Users/tudor a/Desktop/Rotary_Encoder.pretty")(options "")(descr ""))
+)
