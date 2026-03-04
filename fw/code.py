@@ -9,22 +9,17 @@ from kmk.extensions.media_keys import MediaKeys
 
 keyboard = KMKKeyboard()
 
-# 1. MATRIX SETUP
 keyboard.col_pins = (board.D9, board.D8, board.D6, board.D7)
 keyboard.row_pins = (board.D0, board.D1, board.D2)
 keyboard.diode_orientation = DiodeOrientation.COL2ROW
 
-# 2. MEDIA SETUP
 keyboard.extensions.append(MediaKeys())
 
-# 3. ENCODER SETUP (Scrolling/Zooming)
-# Pro Tip: In Fusion, scrolling the wheel usually zooms!
 encoder_handler = EncoderHandler()
 encoder_handler.pins = ((board.D3, board.D10, None, False),)
 encoder_handler.map = [((KC.UP, KC.DOWN, None),)]
 keyboard.modules.append(encoder_handler)
 
-# 4. OLED SETUP
 try:
     i2c = busio.I2C(board.D5, board.D4)
     display = adafruit_ssd1306.SSD1306_I2C(128, 32, i2c)
@@ -36,10 +31,6 @@ try:
 except Exception as e:
     print(f"OLED Error: {e}")
 
-# 5. KEYMAP
-# Row 1: Media Controls
-# Row 2: Windows Shortcuts (Alt+Tab, Copy, Paste, Undo)
-# Row 3: Fusion 360 (Search, Dimension, Extrude, Line)
 keyboard.keymap = [[
     KC.MPRV,         KC.MPLY,         KC.MNXT,         KC.MUTE,          # Row 1
     KC.LALT(KC.TAB), KC.LCTRL(KC.C),  KC.LCTRL(KC.V),  KC.LCTRL(KC.Z),   # Row 2
